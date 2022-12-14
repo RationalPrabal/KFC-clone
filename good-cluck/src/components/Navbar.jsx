@@ -28,7 +28,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box w="80%" m="auto">
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -53,12 +53,7 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <Text
-            textAlign={useBreakpointValue({ base: 'center', md: 'left' })}
-            fontFamily={'heading'}
-            color={useColorModeValue('gray.800', 'white')}>
-            Good Cluck
-          </Text>
+        <Img w="5%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
 
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
@@ -69,25 +64,11 @@ export default function WithSubnavigation() {
           flex={{ base: 1, md: 0 }}
           justify={'flex-end'}
           direction={'row'}
-          spacing={20}
-         
-          border={"solid red 5px"}
+          spacing={15}
        >
-            <Button
-            display={{ base: 'none', md: 'inline-flex' }}
-            fontSize={'sm'}
-            fontWeight={600}
-            color={'white'}
-            bg={'#df0000'}
-          w={3000}
-            width={"50%"}
-            href={'#'}>
-           Start Order
-          </Button>
-         
-  <Avatar w={10} src='https://bit.ly/broken-link' />
-
-          <Img w={10} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
+           <Img src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"/>
+        <div style={{marginTop:"8px", fontWeight:"700",color:"white"  }}>Account</div>
+          <Img w={"50%"} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
         </Stack>
       </Flex>
 
@@ -104,7 +85,7 @@ const DesktopNav = () => {
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={4}>
+    <Stack direction={'row'} spacing={4} mt="4">
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -114,7 +95,7 @@ const DesktopNav = () => {
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
-                color={linkColor}
+                color={"white"}
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
@@ -208,7 +189,7 @@ const MobileNavItem = ({ label, children, href }) => {
         }}>
         <Text
           fontWeight={600}
-          color={useColorModeValue('gray.600', 'gray.200')}>
+          color={"white"}>
           {label}
         </Text>
         {children && (
@@ -249,15 +230,10 @@ const NAV_ITEMS = [
   
   },
   {
-    label: 'Careers',
+    label: 'Deals',
    
   },
-  {
-    label: 'About',
+ 
    
-  },
-  {
-    label: 'Find a GoodCluck',
-   
-  },
+  
 ];
