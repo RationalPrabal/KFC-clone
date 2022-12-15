@@ -5,7 +5,7 @@ return(
     <>
      <GridItem  ><Img w="85%" src={img}/>
 {
-    index==7 ?  <Text fontWeight={"700"} fontSize="18px" mt={"50px"}>{title}</Text> : <Text fontWeight={"700"} fontSize="18px" fontFamily={"National 2 Condensed"} >{title}</Text>
+    index==7 ?  <Text fontWeight={"700"} fontSize="15px" mt={"50px"}>{title}</Text> : <Text fontWeight={"700"} fontSize="15px" mt={"10px"} fontFamily={"National 2 Condensed"} >{title}</Text>
 }
     
      </GridItem>

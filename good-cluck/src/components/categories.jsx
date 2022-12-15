@@ -5,6 +5,7 @@ import { Box,   Center,
     Stack,
     Image, Text } from "@chakra-ui/react";
     import Cat_card from "./category-card";
+    import LargeWithAppLinksAndSocial from "./Footer";
     import React from "react";
 const Categories=()=>{
     
@@ -49,12 +50,20 @@ const Categories=()=>{
  Welcome to Good Click!
 </Text>
 </Box>
+<Text mt="140px" w="40%" ml="11.5%" fontSize={"34px"} fontWeight="700" lineHeight={"43px"}  fontFamily="National 2 Condensed">BROWSE CATEGORIES</Text>
 <div style={{width:"80%",marginLeft:"20%"}}>
-<Grid templateColumns='repeat(4, 1fr)' gap={4}>
+<Grid  mt="40px" templateColumns='repeat(4, 1fr)' gap={4}>
+  
+
+
+
   {
+   
 data.map((el,i)=><Cat_card img={el.img} title={el.title} index={i}  />)
   }
+  
 </Grid>
+
 </div>
     </>
 }
