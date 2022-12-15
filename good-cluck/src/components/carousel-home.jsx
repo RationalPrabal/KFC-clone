@@ -12,8 +12,8 @@ const settings = {
   fade: true,
   infinite: true,
   autoplay: true,
-  speed: 500,
-  autoplaySpeed: 5000,
+  speed: 5,
+  autoplaySpeed: 3000,
   slidesToShow: 1,
   slidesToScroll: 1,
 };
@@ -44,8 +44,8 @@ export default function Carousel() {
     </Box>
     <Box
       position={'relative'}
-      height={'600px'}
-      width={'full'}
+      //height={'600px'}
+      width={'100%'}
       overflow={'hidden'}>
       {/* CSS files for react-slick */}
       <link
@@ -86,7 +86,7 @@ export default function Carousel() {
         <BiRightArrowAlt />
       </IconButton>
       {/* Slider */}
-      <Slider {...settings} ref={(slider) => setSlider(slider)}>
+      <Slider{...settings} ref={(slider) => setSlider(slider)}>
         {cards.map((url, index) => (
           <Box
             key={index}
