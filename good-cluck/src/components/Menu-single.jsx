@@ -1,7 +1,9 @@
 import { GridItem } from "@chakra-ui/react";
-import { Box,Badge,Image,StarIcon,Img ,Text,Button} from '@chakra-ui/react';
-const Single_Card=({link,title,count,price})=>{
+import { Box,Badge,Image,Img,Text,Button} from '@chakra-ui/react';
+const Single_Card=({link,title,count,price,Name})=>{
     return <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
+   
+  
 <Image src={link}/>
 
 <Box p='6'>

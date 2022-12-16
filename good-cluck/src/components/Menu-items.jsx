@@ -1,4 +1,4 @@
-import { Box,Badge,Image,StarIcon } from '@chakra-ui/react';
+import { Box,Badge,Image,StarIcon,Text } from '@chakra-ui/react';
 import React from 'react';
 import { Grid } from '@chakra-ui/react';
 import { Single_Card } from './Menu-single';
@@ -39,10 +39,10 @@ fetching()
     
      
     
-     return <Grid templateColumns='repeat(2, 1fr)' gap={6}>
-  {
-    products.map((el)=><Single_Card link={el.link} title={el.title} price={el.price} count={el.count}/>)
-  }
+     return <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+
+  { products.map((el,i)=> <Single_Card link={el.link} title={el.title} price={el.price} count={el.count}/>)
+}
 </Grid>
     
      }
