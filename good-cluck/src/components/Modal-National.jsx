@@ -11,6 +11,7 @@ import {
     ModalCloseButton,
     Box,Button,FormControl,FormLabel
   } from '@chakra-ui/react';
+  import InitialFocuss from './Modal-Delivery';
   import React from 'react';
 function InitialFocus() {
     const { isOpen, onOpen, onClose } = useDisclosure()
@@ -37,12 +38,8 @@ function InitialFocus() {
             <ModalCloseButton />
             <ModalBody textAlign={"center"}>
            <Text fontWeight={"700"} fontSize={"30px"}>HOW WOULD YOU LIKE TO RECEIVE YOUR ORDER?</Text>
-           <br></br>
-           <Button mt="8" borderRadius={"20"} width="38%"  colorScheme='black' variant='outline'>Delivery</Button>
-           <br></br>
-           <Button mt="8" borderRadius={"20"} width="38%"  colorScheme='black' variant='outline'>Pickup</Button>
-           <br></br>
-           <Button mt="8"  borderRadius={"20"} width="38%"  colorScheme='black' variant='outline'>Dine In</Button>
+           <InitialFocuss/>
+          
   </ModalBody>
           <ModalFooter>
            
