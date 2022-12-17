@@ -7,26 +7,26 @@ const NationalOffers=()=>{
         {
             "img":"https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/offers/xl/ADDCHK99.jpg",
             "title": "Add 2 Pc Hot n Crispy",
-            "details":"Add 2 Pc Hot n Crispy Chicken @ just Rs 99 on min cart value of Rs 499 or more. Applicable on",
+            "details":"ADD 2 PC HOT N CRISPY CHICKEN @ JUST RS 99 ON MIN CART VALUE OF RS 499 OR MORE. APPLICABLE ON 2ND & 3RD ORDER FOR SIGNED IN USER.",
 
         },
         {
             
             "img":"https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/offers/xl/BIGSAVE.jpg",
             "title": "Upto Rs 100 off on min",
-            "details":"Upto Rs 100 off on min cart value of Rs 599 or more . Applicable on 4th order onwards for",
+            "details":"UPTO RS 100 OFF ON MIN CART VALUE OF RS 599 OR MORE . APPLICABLE ON 4TH ORDER ONWARDS FOR SIGNED IN USER.",
         },
         {
             
             "img":"https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/offers/xl/CHKZINGER.jpg",
             "title": "1 Pc free Chicken...",
-            "details":"1 Pc free Chicken Zinger on a cart value of 499 or above on first order. Only for registered...",
+            "details":"1 PC FREE CHICKEN ZINGER ON A CART VALUE OF 499 OR ABOVE ON FIRST ORDER. ONLY FOR REGISTERED USERS.",
         },
         {
             
             "img":"https://orderserv-kfc-assets.yum.com/15895bb59f7b4bb588ee933f8cd5344a/images/offers/xl/VEGZINGER.jpg",
             "title": "1 Pc free Veg Zinger on....",
-            "details":"1 Pc free Veg Zinger on a cart value of 499 or above on first order. Only for registered users",
+            "details":"1 PC FREE VEG ZINGER ON A CART VALUE OF 499 OR ABOVE ON FIRST ORDER. ONLY FOR REGISTERED USERS",
         }
     ];
     const [Data,setData]=React.useState(data)

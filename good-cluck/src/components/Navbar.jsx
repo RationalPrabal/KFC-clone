@@ -23,7 +23,7 @@ import {
   ChevronDownIcon,
   ChevronRightIcon,
 } from '@chakra-ui/icons';
-
+import { Link as RouterLink } from 'react-router-dom';
 export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
@@ -53,8 +53,9 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-        <Img w="5%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
-
+          <RouterLink to="/"> <Img border={"2px solid red"} w="20%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
+</RouterLink>
+       
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
             <DesktopNav />
           </Flex>
@@ -100,7 +101,8 @@ const DesktopNav = () => {
                   textDecoration: 'none',
                   color: linkHoverColor,
                 }}>
-                {navItem.label}
+                  <RouterLink to={navItem.link} > {navItem.label}</RouterLink>
+               
               </Link>
             </PopoverTrigger>
 
@@ -227,11 +229,11 @@ const MobileNavItem = ({ label, children, href }) => {
 const NAV_ITEMS = [
   {
     label: 'Menu',
-  
+    link: "/menu"
   },
   {
     label: 'Deals',
-   
+   link: "/deals"
   },
  
    

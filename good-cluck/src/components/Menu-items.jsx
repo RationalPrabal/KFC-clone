@@ -41,7 +41,7 @@ fetching()
     
      return <Grid templateColumns='repeat(3, 1fr)' gap={6}>
 
-  { products.map((el,i)=> <Single_Card link={el.link} title={el.title} price={el.price} count={el.count}/>)
+  { products.map((el,i)=> <Single_Card id={el.id} link={el.link} title={el.title} price={el.price} count={el.count}/>)
 }
 </Grid>
     

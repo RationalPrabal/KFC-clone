@@ -1,7 +1,8 @@
 import { GridItem } from "@chakra-ui/react"
 
 import { Box,Img,Image,Button,Text } from "@chakra-ui/react"
-import InitialFocus from "./Modal-National"
+import InitialFocus from "./Modal-National";
+import Details_Modal from "./Details-Modal";
 function National_Single({details,img,title}) {
  
     return (
@@ -70,7 +71,7 @@ function National_Single({details,img,title}) {
           </Box> */}
         </Box>
        <Box  display={"flex"} justifyContent="space-around">
-        <Text mt="1" as="u">View Details</Text>
+        <Details_Modal details={details} title={title} />
       <InitialFocus/>
        </Box>
       
