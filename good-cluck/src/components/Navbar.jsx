@@ -53,7 +53,7 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <RouterLink to="/"> <Img border={"2px solid red"} w="20%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
+          <RouterLink to="/"> <Img  w="20%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
 </RouterLink>
        
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -62,14 +62,25 @@ export default function WithSubnavigation() {
         </Flex>
 
         <Stack
-          flex={{ base: 1, md: 0 }}
-          justify={'flex-end'}
-          direction={'row'}
-          spacing={15}
+    
+     spacing='24px'
+     w="45"
+     justify={"right"}
+     direction={'row'}
+        mr="0"
        >
-           <Img src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"/>
-        <div style={{marginTop:"8px", fontWeight:"700",color:"white"  }}>Account</div>
-          <Img w={"50%"} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
+        <RouterLink to="/account">
+        <Img ml="20"  w={"30%"} mt="5" src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"/>
+      
+        </RouterLink>
+        <RouterLink to="/account">
+        <Text   mt="5" style={{fontWeight:"700",color:"white"  }}>Account</Text>
+        </RouterLink>
+        <RouterLink to="/cart">
+        <Img  w={"20%"} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
+        </RouterLink>
+          
+          
         </Stack>
       </Flex>
 

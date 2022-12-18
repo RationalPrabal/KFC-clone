@@ -5,83 +5,50 @@ import {
     Flex,
     Heading,
     Image,
+    GridItem,
     Link,
     Stack,
     Text,
     useColorModeValue,
+    Grid,
   } from '@chakra-ui/react';
-  
-  export default function socialProfileWithImageHorizontal() {
+  import axios from 'axios';
+  import React from 'react';
+  export default function SocialProfileWithImageHorizontal({image,price,title,setAmount,id,handleAdd,handleSub,count,fetching}) {
+
+    const Delete=(id)=>{
+      console.log("sdf")
+      axios.delete(`http://localhost:3000/carts/${id}`).then((res)=>console.log(res));
+    //  fetching()
+    }
+   
     return (
-      <Center py={6}>
-        <Stack
-          borderWidth="1px"
-          borderRadius="lg"
-          w={{ sm: '100%', md: '540px' }}
-          height={{ sm: '476px', md: '20rem' }}
-          direction={{ base: 'column', md: 'row' }}
-          
-          boxShadow={'2xl'}
-          padding={4}>
-          <Flex flex={1} bg="blue.200">
-            <Image
-              objectFit="cover"
-              boxSize="100%"
-              src={
-                'https://images.unsplash.com/photo-1520810627419-35e362c5dc07?ixlib=rb-1.2.1&q=80&fm=jpg&crop=faces&fit=crop&h=200&w=200&ixid=eyJhcHBfaWQiOjE3Nzg0fQ'
-              }
-            />
-          </Flex>
-          <Stack
-            flex={1}
-            flexDirection="column"
-            justifyContent="center"
-            alignItems="center"
-            p={1}
-            pt={2}>
-            <Heading fontSize={'2xl'} fontFamily={'body'}>
-              Lindsey James
-            </Heading>
-          
-             
-             
-             
-            <Stack
-              width={'100%'}
-              mt={'2rem'}
-              direction={'row'}
-              padding={2}
-              justifyContent={'space-between'}
-              alignItems={'center'}>
-              <Button
-                flex={1}
-                fontSize={'sm'}
-                rounded={'full'}
-                _focus={{
-                  bg: 'gray.200',
-                }}>
-                Message
-              </Button>
-              <Button
-                flex={1}
-                fontSize={'sm'}
-                rounded={'full'}
-                bg={'blue.400'}
-                color={'white'}
-                boxShadow={
-                  '0px 1px 25px -5px rgb(66 153 225 / 48%), 0 10px 10px -5px rgb(66 153 225 / 43%)'
-                }
-                _hover={{
-                  bg: 'blue.500',
-                }}
-                _focus={{
-                  bg: 'blue.500',
-                }}>
-                Follow
-              </Button>
-            </Stack>
-          </Stack>
-        </Stack>
-      </Center>
+      <div >
+      <GridItem  w="60%" mt="10" >
+      <div style={{display:"flex",justifyContent:"space-around"}} >
+        <div>
+          <Image w="50%" src={image} />
+        
+        </div>
+     
+      <Text w="100%" mr="50">{title}</Text>
+        <div style={{display:"flex",justifyContent:"space-around"}}>
+          <Button disabled={count==1}  onClick={()=>{handleSub(id)}
+          }>-</Button>
+          <Button border={"3px solid white"}>{count}</Button>
+          <Button border={"3px solid white"} onClick={()=>{handleAdd(id)}}  >+</Button>
+        </div>
+        <div>
+        ₹{price*count}
+     
+    
+        </div>
+      
+      </div>
+    
+     
+      </GridItem>
+        <Button w={"10%"} m="auto" colorScheme={"red"} onClick={()=>Delete(id)} >Remove</Button>
+        </div>
     );
   }

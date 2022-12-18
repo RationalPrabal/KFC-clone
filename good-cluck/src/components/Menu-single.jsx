@@ -1,7 +1,17 @@
 import { GridItem } from "@chakra-ui/react";
 import { Box,Badge,Image,Img,Text,Button} from '@chakra-ui/react';
 import { Link } from "react-router-dom";
+import axios from "axios";
+
 const Single_Card=({link,title,count,price,Name,id})=>{
+const AddToCart=()=>{
+ 
+  axios.post(`http://localhost:3000/carts`,{
+  id, link,price,title
+}).then((res)=>console.log(res))
+}
+
+
     return <Box maxW='sm' borderWidth='1px' borderRadius='lg' overflow='hidden'>
    
   
@@ -44,9 +54,9 @@ textAlign={"left"}
   </Box>
 
   <Box  size={"sm"} display='flex' mt='2' alignItems='center' >
-  <Button mt="20"  borderRadius={"20"} bg='#df0000'>
-    <Link to={`/cart/${id}`}>Add to Cart
-  <Img ml="5" src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg" /></Link>
+  <Button onClick={AddToCart} mt="20"  borderRadius={"20"} bg='#df0000'>
+  Add to Cart
+  <Img ml="5" src="https://online.kfc.co.in/static/media/Icon_Add_to_Cart.58b87a9b.svg" />
   </Button>
    
   </Box>
