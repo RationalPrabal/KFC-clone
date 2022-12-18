@@ -11,6 +11,7 @@ import {
     ModalCloseButton,
     Box,Button,FormControl,FormLabel, AspectRatio
   } from '@chakra-ui/react';
+  import Modal_Payment from './Modal-Payment';
   import { Link } from 'react-router-dom';
   import { useTime } from 'framer-motion';
   import { Select } from '@chakra-ui/react';
@@ -79,8 +80,9 @@ function Modal_Order({details,title,type,data}) {
                
   </ModalBody>
           <ModalFooter >
+            <Modal_Payment/>
             
-            <Button colorScheme={"black"}  variant='outline' borderRadius={"20"}> <Link to="/menu">Confirm  </Link></Button>
+            {/* <Button colorScheme={"black"}  variant='outline' borderRadius={"20"}> <Link to="/menu">Confirm  </Link></Button>  */}
           
           
           </ModalFooter>

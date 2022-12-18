@@ -21,9 +21,8 @@ function InitialFocus({location}) {
   
     return (
       <>
-      { location=="details" ?  <Button m="auto" onClick={onOpen}  borderRadius={"20"} width="50%"  colorScheme='black' variant='outline'>Redeem</Button>:
-        <Button onClick={onOpen}  borderRadius={"20"} width="38%"  colorScheme='black' variant='outline'>Redeem</Button>}
-  
+      { location=="details" ?<Button m="auto" onClick={onOpen}  borderRadius={"20"} width="50%"  colorScheme='black' variant='outline'>Redeem</Button> : location=="checkout" ? <Button onClick={onOpen} mt="50"  borderRadius={"30"} w={"50%"} colorScheme="red">Checkout</Button> : <Button onClick={onOpen}  borderRadius={"20"} width="38%"  colorScheme='black' variant='outline'>Redeem</Button>}
+      
         <Modal size={"4xl"}
           initialFocusRef={initialRef}
           finalFocusRef={finalRef}
