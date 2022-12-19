@@ -28,7 +28,7 @@ function AirbnbCard() {
 // ]
 
 const fetching=async()=>{
-    let res= await fetch(`http://localhost:3000/products?_limit=100`);
+    let res= await fetch(`https://vercel-backend-mocha.vercel.app/products`);
     let data= await res.json();
     console.log(data)
     setProducts(data)

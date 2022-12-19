@@ -18,7 +18,7 @@ import {
 
     const Delete=(id)=>{
       console.log("sdf")
-      axios.delete(`http://localhost:3000/carts/${id}`).then((res)=>console.log(res));
+      axios.delete(`https://vercel-backend-mocha.vercel.app/carts/${id}`).then((res)=>console.log(res));
     //  fetching()
     }
    

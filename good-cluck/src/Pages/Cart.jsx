@@ -37,7 +37,7 @@ const Cart=()=>{
     }
    
     const fetching=async ()=>{
-        let response=await fetch(`http://localhost:3000/carts`);
+        let response=await fetch(`https://vercel-backend-mocha.vercel.app/carts`);
         let data= await response.json();
      
         setProduct(data);
@@ -93,7 +93,7 @@ React.useEffect(()=>{
 }
 
             </Grid>
-        <Checkout  amount={amount}/>
+        <Checkout product={product} amount={amount}/>
         </div>
         </>
     )

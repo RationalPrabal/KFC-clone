@@ -17,7 +17,7 @@ import {
   import { PinInput, PinInputField ,HStack} from '@chakra-ui/react'
   import React from 'react';
 
-function Modal_SignIn() {
+function Modal_SignIn({number}) {
   
     const { isOpen, onOpen, onClose } = useDisclosure();
 
@@ -45,7 +45,7 @@ function Modal_SignIn() {
             <ModalHeader fontSize={"30px"} fontWeight="700" textAlign={"center"}>WE JUST TEXTED YOU</ModalHeader></div>
             <ModalCloseButton />
             <ModalBody display={"grid"} justifyContent="left">
-       <Text >Enter the OTP received on your registered Mobile number</Text>
+       <Text >Enter the OTP received on {number}</Text>
        <br></br>
 <HStack>
   <PinInput>

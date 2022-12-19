@@ -15,7 +15,7 @@ import {
   import React from 'react';
   import Modal_OTP from './Modal-OTP';
 function Modal_Payment() {
-  
+
     const { isOpen, onOpen, onClose } = useDisclosure();
 
   
