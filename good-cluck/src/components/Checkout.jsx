@@ -22,7 +22,7 @@ const Checkout=({amount})=>{
         <GridItem fontWeight={"700"}>Total Cart Amount</GridItem>
         <GridItem fontWeight={"700"}>₹{amount}</GridItem>
         <GridItem fontWeight={"700"}>GST</GridItem>
-        <GridItem fontWeight={"700"}> ₹{amount*0.06}</GridItem>
+        <GridItem fontWeight={"700"}> ₹{(amount*0.06).toFixed(2)}</GridItem>
         <GridItem fontWeight={"700"}>Grand Total</GridItem>
         <GridItem fontWeight={"700"}> ₹{amount+amount*0.06}</GridItem>
 

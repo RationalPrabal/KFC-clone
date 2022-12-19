@@ -61,7 +61,12 @@ const getTotal=()=>{
 }
 
 
-
+React.useEffect(()=>{
+    fetching();
+    //var acc=0
+    
+    
+        },[product]);
 
 //console.log(acc)
   
@@ -70,12 +75,7 @@ const getTotal=()=>{
         getTotal()
      
     },[product]) ;
-    React.useEffect(()=>{
-        fetching();
-        //var acc=0
-        
-        
-            },[product]);
+   
     return(
         <>
         <WithSubnavigation/>
