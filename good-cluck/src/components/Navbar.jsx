@@ -53,7 +53,7 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <RouterLink to="/"> <Img  w="20%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
+          <RouterLink to="/"> <Img  w="25%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
 </RouterLink>
        
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>

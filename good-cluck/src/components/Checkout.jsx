@@ -11,12 +11,12 @@ import {
 import React from 'react';
 import InitialFocus from './Modal-National';
   
-
-const Checkout=({amount,product})=>{
+import Loader from './loader';
+const Checkout=({amount,product,loader})=>{
     const [location,setLocation]= React.useState("checkout")
     
    
-    return <Box boxSize={"30%"} mt="300px" justifyContent="center" border={"2px solid red"}> 
+    return loader ? <Loader/> :  <Box boxSize={"30%"} mt="300px" justifyContent="center" border={"2px solid red"}> 
     <Text  fontWeight={"700"}>Details</Text>
     <Grid  height={"50"} templateColumns='repeat(2, 1fr)'  templateRows='repeat(2, 1fr)' >
         <GridItem fontWeight={"700"}>Total Cart Amount</GridItem>

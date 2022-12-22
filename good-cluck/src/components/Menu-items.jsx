@@ -2,8 +2,13 @@ import { Box,Badge,Image,StarIcon,Text } from '@chakra-ui/react';
 import React from 'react';
 import { Grid } from '@chakra-ui/react';
 import { Single_Card } from './Menu-single';
+import { Skeleton, SkeletonCircle, SkeletonText,Stack } from '@chakra-ui/react'
+import { Spinner } from '@chakra-ui/react'
+import Loader from './loader';
+import { Progress } from '@chakra-ui/react';
 function AirbnbCard() {
     const [products,setProducts]= React.useState([])
+    const [loader,setLoader]= React.useState(true)
 //     const arr= [{
 //       imageUrl: 'https://bit.ly/2Z4KKcF',
 //       imageAlt: 'Rear view of modern home with pool',
@@ -31,6 +36,7 @@ const fetching=async()=>{
     let res= await fetch(`https://vercel-backend-mocha.vercel.app/products`);
     let data= await res.json();
     console.log(data)
+    setLoader(false);
     setProducts(data)
 }
   React.useEffect(()=>{
@@ -39,7 +45,7 @@ fetching()
     
      
     
-     return <Grid templateColumns='repeat(3, 1fr)' gap={6}>
+     return loader ? <Loader/>: <Grid templateColumns='repeat(3, 1fr)' gap={6}>
 
   { products.map((el,i)=> <Single_Card id={el.id} link={el.link} title={el.title} price={el.price} count={el.count}/>)
 }

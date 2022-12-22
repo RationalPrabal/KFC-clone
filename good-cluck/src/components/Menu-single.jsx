@@ -8,7 +8,7 @@ const Single_Card=({link,title,count,price,Name,id})=>{
 const AddToCart=()=>{
  setText("Added to Cart")
   axios.post(`https://vercel-backend-mocha.vercel.app/carts`,{
-  id, link,price,title,count
+  id, link,price,title,quant:1,
 }).then((res)=>console.log(res))
 }
 
