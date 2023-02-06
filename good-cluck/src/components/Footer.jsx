@@ -59,7 +59,7 @@ export default function LargeWithAppLinksAndSocial() {
         <SimpleGrid  columns={{ base: 1, sm: 2, md: 5 }} spacing={8}>
 
         <Stack align={'flex-start'}>
-            <ListHeader>Good Click Food</ListHeader>
+            <ListHeader>KFC Food</ListHeader>
             <Link href={'#'}>Menu</Link>
             <Link href={'#'}>Order Lookup</Link>
             <Link href={'#'}>Gift Card</Link>
@@ -71,7 +71,7 @@ export default function LargeWithAppLinksAndSocial() {
             <ListHeader>Support</ListHeader>
             <Link href={'#'}>Get Help</Link>
             <Link href={'#'}>Contact Us</Link>
-            <Link href={'#'}>Good Cluck Feedback</Link>
+            <Link href={'#'}>KFC Feedback</Link>
             <Link href={'#'}>Privacy Policy</Link>
           </Stack>
           <Stack align={'flex-start'}>

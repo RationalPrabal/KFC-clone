@@ -1,9 +1,9 @@
 import SimpleSidebar from "../components/sidebar";
-import WithSubnavigation from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import AirbnbCard from "../components/Menu-items";
 const Menu=()=>{
     return <>
-    <WithSubnavigation/>
+    <Navbar/>
   <div style={{display:"flex"}} >
 <SimpleSidebar/>
 <AirbnbCard/>

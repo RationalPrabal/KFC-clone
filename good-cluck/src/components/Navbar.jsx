@@ -1,3 +1,4 @@
+
 import {
   Box,
   Flex,
@@ -28,7 +29,7 @@ export default function WithSubnavigation() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box w="80%" m="auto">
+    <Box w={{base:"100%",sm:"100%",md:"80%"}} m="auto">
       <Flex
         bg={useColorModeValue('white', 'gray.800')}
         color={useColorModeValue('gray.600', 'white')}
@@ -37,7 +38,8 @@ export default function WithSubnavigation() {
         px={{ base: 4 }}
         borderBottom={1}
         borderStyle={'solid'}
-        borderColor={useColorModeValue('gray.200', 'gray.900')}
+        
+     //   borderColor={useColorModeValue('gray.200', 'gray.900')}
         align={'center'}>
         <Flex
           flex={{ base: 1, md: 'auto' }}
@@ -53,7 +55,7 @@ export default function WithSubnavigation() {
           />
         </Flex>
         <Flex flex={{ base: 1 }} justify={{ base: 'center', md: 'start' }}>
-          <RouterLink to="/"> <Img  w="25%" src="https://i.ibb.co/WK3PQwp/Good-Cluck.png"/>
+          <RouterLink to="/"> <Img  src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg"/>
 </RouterLink>
        
           <Flex display={{ base: 'none', md: 'flex' }} ml={10}>
@@ -61,27 +63,29 @@ export default function WithSubnavigation() {
           </Flex>
         </Flex>
 
-        <Stack
-    
-     spacing='24px'
-     w="45"
-     justify={"right"}
-     direction={'row'}
-        mr="0"
-       >
+        <Flex
+     display={"flex"}
+
+     justifyContent={"space-between"} >
+        <Box  ml="100px"    >
         <RouterLink to="/account">
-        <Img ml="20"  w={"30%"} mt="5" src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"/>
+        <Img mt="5" src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"/>
       
         </RouterLink>
+        </Box>
+        <Box  ml="10px" mt="-0.5"   >
         <RouterLink to="/account">
-        <Text   mt="5" style={{fontWeight:"700",color:"white"  }}>Account</Text>
+        <Text   mt="5" style={{fontWeight:"700" }}>Account</Text>
         </RouterLink>
-        <RouterLink to="/cart">
-        <Img  w={"20%"} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
+        </Box>
+        <Box   ml="90px">
+        <RouterLink to="/cart"    >
+        <Img w={{base:"80%",sm:"20%"}} src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
         </RouterLink>
+        </Box>
           
           
-        </Stack>
+        </Flex>
       </Flex>
 
       <Collapse in={isOpen} animateOpacity>
@@ -92,12 +96,12 @@ export default function WithSubnavigation() {
 }
 
 const DesktopNav = () => {
-  const linkColor = useColorModeValue('gray.600', 'gray.200');
+ 
   const linkHoverColor = useColorModeValue('gray.800', 'white');
   const popoverContentBgColor = useColorModeValue('white', 'gray.800');
 
   return (
-    <Stack direction={'row'} spacing={4} mt="4">
+    <Stack direction={'row'} spacing={4} >
       {NAV_ITEMS.map((navItem) => (
         <Box key={navItem.label}>
           <Popover trigger={'hover'} placement={'bottom-start'}>
@@ -107,7 +111,7 @@ const DesktopNav = () => {
                 href={navItem.href ?? '#'}
                 fontSize={'sm'}
                 fontWeight={500}
-                color={"white"}
+             
                 _hover={{
                   textDecoration: 'none',
                   color: linkHoverColor,
@@ -186,7 +190,7 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) => {
+const MobileNavItem = ({ label, children, link }) => {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
@@ -194,7 +198,7 @@ const MobileNavItem = ({ label, children, href }) => {
       <Flex
         py={2}
         as={Link}
-        href={href ?? '#'}
+        href={link}
         justify={'space-between'}
         align={'center'}
         _hover={{
@@ -202,7 +206,7 @@ const MobileNavItem = ({ label, children, href }) => {
         }}>
         <Text
           fontWeight={600}
-          color={"white"}>
+         >
           {label}
         </Text>
         {children && (

@@ -9,14 +9,14 @@ import {
     Text,
     useColorModeValue,
   } from '@chakra-ui/react';
-  import WithSubnavigation from '../components/Navbar';
+  import Navbar from '../components/Navbar';
   import Modal_SignIn from '../components/Modal-SignIn';
   import React from 'react';
   export default function SignIn() {
 const [number,setNumber]= React.useState()
     return (
         <>
-        <WithSubnavigation/>
+        <Navbar/>
        
       <Flex
         minH={'100vh'}

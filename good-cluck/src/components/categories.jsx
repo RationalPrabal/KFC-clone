@@ -46,8 +46,8 @@ const Categories=()=>{
     const [data,setData]= React.useState(arr)
    return <>
    <Box ml="10%" width={"40%"}>
- <Text fontSize='44px' fontWeight={"700"} fontFamily="National 2 Condensed">
- Welcome to Good Click!
+ <Text fontSize='44px' fontWeight={"700"} fontFamily="National 2 Condensed" mt="20">
+ Welcome to KFC!
 </Text>
 </Box>
 <Text mt="140px" w="40%" ml="11.5%" fontSize={"34px"} fontWeight="700" lineHeight={"43px"}  fontFamily="National 2 Condensed">BROWSE CATEGORIES</Text>

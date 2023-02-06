@@ -15,7 +15,7 @@ import {
   import axios from 'axios';
   import React from 'react';
   import { Spinner } from '@chakra-ui/react';
-  export default function SocialProfileWithImageHorizontal({image,price,title,setAmount,id,fetching,ch,setCh,quant,setLoader}) {
+  export default function SocialProfileWithImageHorizontal({image,price,name,setAmount,id,fetching,ch,setCh,quant,setLoader}) {
     const [l,sl]= React.useState(false);
    // const [count,setCount]= React.useState(1);
     const Delete=(id)=>{
@@ -58,9 +58,9 @@ import {
         
         </div>
      
-      <Text w="100%" mr="50">{title}</Text>
+      <Text w="100%" mr="50">{name}</Text>
         <div style={{display:"flex",justifyContent:"space-around"}}>
-          <Button disabled={quant==1}  onClick={()=>handleSub(id)}
+          <Button disabled={quant===1}  onClick={()=>handleSub(id)}
           >-</Button>
           <Button border={"3px solid white"}>{quant}</Button>
           <Button border={"3px solid white"} onClick={()=>handleAdd(id)} >+</Button>

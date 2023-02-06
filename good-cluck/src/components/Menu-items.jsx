@@ -47,7 +47,7 @@ fetching()
     
      return loader ? <Loader/>: <Grid templateColumns='repeat(3, 1fr)' gap={6}>
 
-  { products.map((el,i)=> <Single_Card id={el.id} link={el.link} title={el.title} price={el.price} count={el.count}/>)
+  { products.map((el,i)=> <Single_Card id={el.id} image={el.images} name={el.name} price={el.price} type={el.type} description={el.description}/>)
 }
 </Grid>
     

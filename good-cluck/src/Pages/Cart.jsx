@@ -2,7 +2,7 @@
 import { Box, Grid,Text } from "@chakra-ui/react";
 import React from "react";
 import Checkout from "../components/Checkout";
-import WithSubnavigation from "../components/Navbar";
+import Navbar from "../components/Navbar";
 import SocialProfileWithImageHorizontal from "../components/Single-Cart";
 import Loader from "../components/loader";
 import Empty from "../components/empty-cart";
@@ -75,7 +75,7 @@ React.useEffect(()=>{
    
     return(
         <>
-        <WithSubnavigation/>
+        <Navbar/>
       <Box mt="10" ml="20" textAlign={"left"}>
         <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADgAAAAeCAYAAAB5c901AAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAABNSURBVHgB7c9BDQAgAMPAgQ4c4F8KDvABFuBHSe+9LGmZ6SsXWkY52b3yW/M5A+kMpDOQzkA6A+kMpDOQzkA6A+kMpDOQzkA6A+kMpNu9MQhKmC+cDgAAAABJRU5ErkJggg==" />
         <Text fontSize={"30px"} fontWeight="700">MY CART</Text>
@@ -86,7 +86,7 @@ React.useEffect(()=>{
 
 { loader ? <Loader/> :
     
-    product?.map((el)=><SocialProfileWithImageHorizontal image={el.link} price={el.price} title={el.title} fetching={fetching} setAmount={setAmount} id={el.id} ch={ch} setCh={setCh} quant={el.quant} setLoader={setLoader}/>)
+    product?.map((el)=><SocialProfileWithImageHorizontal image={el.image} price={el.price} name={el.name} fetching={fetching} setAmount={setAmount} id={el.id} ch={ch} setCh={setCh} quant={el.quant} setLoader={setLoader}/>)
 }
 
             </Grid>
