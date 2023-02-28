@@ -1,4 +1,4 @@
-# square-play-2692
+# KFC Clone
  This Project is about a website through which we can Order various Veg &amp; Non-Veg Fast-Foods.
 
 
