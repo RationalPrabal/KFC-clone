@@ -4,8 +4,10 @@ import AirbnbCard from "../components/Menu-items";
 const Menu=()=>{
     return <>
     <Navbar/>
-  <div style={{display:"flex"}} >
-<SimpleSidebar/>
+  <div  style={{display:"flex"}} >
+    <div className="hidden lg:flex">
+<SimpleSidebar />
+</div>
 <AirbnbCard/>
   </div>
     
