@@ -1,14 +1,20 @@
-import React from "react";
+import React, { useContext } from "react";
 import { TfiLineDotted } from "react-icons/tfi";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Hamburger from "./Hamburger-options";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
 export default function Navbar() {
   const [show, setShow] = React.useState(false);
+  const { isAuth, getUserId } = useContext(AuthContext);
 
   function changeShow() {
     setShow(false);
   }
+
+  React.useEffect(() => {
+    getUserId();
+  }, []);
   return (
     <nav className="lg:w-[95%] m-auto flex justify-between  items-center w-full relative font-bold">
       <div className="lg:flex w-[25%] justify-between hidden">

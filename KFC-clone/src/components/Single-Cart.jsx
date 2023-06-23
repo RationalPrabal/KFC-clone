@@ -34,7 +34,7 @@ export default function SocialProfileWithImageHorizontal({
     sl(true);
     console.log("sdf");
     axios
-      .delete(`https://vercel-backend-mocha.vercel.app/carts/${id}`)
+      .delete(`https://thin-fan-waiter.glitch.me/carts/${id}`)
       .then((res) => console.log(res));
     sl(false);
     //  fetching()
@@ -43,7 +43,7 @@ export default function SocialProfileWithImageHorizontal({
   const handleSub = (id) => {
     //  setCount(count-1)
     sl(true);
-    axios.patch(`https://vercel-backend-mocha.vercel.app/carts/${id}`, {
+    axios.patch(`https://thin-fan-waiter.glitch.me/carts/${id}`, {
       quant: quant - 1,
     });
     setCh(ch + 1);
@@ -55,7 +55,7 @@ export default function SocialProfileWithImageHorizontal({
     sl(true);
     //    setCount(count+1)
     axios
-      .patch(`https://vercel-backend-mocha.vercel.app/carts/${id}`, {
+      .patch(`https://thin-fan-waiter.glitch.me/carts/${id}`, {
         quant: quant + 1,
       })
       .then((res) => console.log(res));

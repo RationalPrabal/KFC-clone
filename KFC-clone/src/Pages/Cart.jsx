@@ -33,7 +33,7 @@ const Cart = () => {
   // }
 
   const fetching = async () => {
-    let response = await fetch(`https://vercel-backend-mocha.vercel.app/carts`);
+    let response = await fetch(`https://thin-fan-waiter.glitch.me/carts`);
     let data = await response.json();
 
     setProduct(data);
