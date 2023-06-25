@@ -1,18 +1,16 @@
-import { ReactNode } from "react";
 import {
   Box,
   Container,
   Stack,
   SimpleGrid,
   Text,
-  Link,
   VisuallyHidden,
   chakra,
   Img,
   useColorModeValue,
 } from "@chakra-ui/react";
 import { FaTwitter, FaYoutube, FaInstagram } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 const ListHeader = ({ children }) => {
   return (
     <Text fontWeight={"500"} fontSize={"lg"} mb={2}>
@@ -77,15 +75,21 @@ export default function LargeWithAppLinksAndSocial() {
             <Link href={"#"}>Caution Notice</Link>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Good Click India</ListHeader>
-            <Link href={"#"}>About Good Click</Link>
+            <ListHeader>KFC India</ListHeader>
+            <Link href={"#"}>About KFC</Link>
             <Link href={"#"}>Careers</Link>
             <Link href={"#"}>Our Golden Past</Link>
             <Link href={"#"}>Contact Us</Link>
           </Stack>
           <Stack align={"flex-start"}>
             <ListHeader>Install App</ListHeader>
-            <Img src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" />
+            <a
+              href="https://play.google.com/store/apps/details?id=com.yum.kfc"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Img src="https://www.freepnglogos.com/uploads/app-store-logo-png/google-play-and-apple-app-store-logos-22.png" />
+            </a>
           </Stack>
         </SimpleGrid>
       </Container>

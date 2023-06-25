@@ -38,7 +38,11 @@ function ToastExample({ pin }) {
         });
       });
   }
-  return <Button onClick={() => onOTPVerify()}>Submit</Button>;
+  return (
+    <Button disabled={pin.length !== 6} onClick={() => onOTPVerify()}>
+      Submit
+    </Button>
+  );
 }
 
 export { ToastExample };

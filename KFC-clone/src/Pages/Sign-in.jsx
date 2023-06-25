@@ -7,9 +7,11 @@ import { AuthContext } from "../context/AuthContext";
 import Profile from "../components/Profile";
 import Orders from "../components/Orders_History";
 import Addresses from "../components/Addresses";
+import PhoneInput from "react-phone-input-2";
+import "react-phone-input-2/lib/style.css";
 export default function SignIn() {
   const { user, isAuth, LogoutUser } = useContext(AuthContext);
-  const [number, setNumber] = React.useState();
+  const [number, setNumber] = React.useState("");
   const [location, setLocation] = React.useState("profile");
 
   return (
@@ -59,16 +61,14 @@ export default function SignIn() {
             p={6}
             my={12}
           >
-            <Heading lineHeight={1.1} fontSize={{ base: "2xl", md: "3xl" }}>
+            <Heading
+              lineHeight={1.1}
+              fontSize={{ base: "xl", sm: "2xl", md: "3xl" }}
+            >
               LET'S SIGN IN OR CREATE ACCOUNT WITH YOUR PHONE NUMBER!
             </Heading>
 
-            <Input
-              type={"number"}
-              placeholder="*Phone Number"
-              onChange={(e) => setNumber(e.target.value)}
-              value={number}
-            ></Input>
+            <PhoneInput country={"in"} onChange={setNumber} value={number} />
             <Text fontSize={"10"}>
               By “logging in to KFC”, you agree to our Privacy Policy and Terms
               & Conditions.

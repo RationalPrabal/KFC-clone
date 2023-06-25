@@ -1,15 +1,5 @@
-import {
-  Box,
-  Center,
-  useColorModeValue,
-  Heading,
-  Grid,
-  Stack,
-  Image,
-  Text,
-} from "@chakra-ui/react";
+import { Box, Grid, Text } from "@chakra-ui/react";
 import Cat_card from "./category-card";
-import LargeWithAppLinksAndSocial from "./Footer";
 import React from "react";
 const Categories = () => {
   const arr = [
@@ -48,10 +38,10 @@ const Categories = () => {
   ];
   const [data, setData] = React.useState(arr);
   return (
-    <>
-      <Box ml="10%" width={"40%"}>
+    <div>
+      <Box ml={{ base: "0", md: "10%" }} width={{ base: "100%", md: "40%" }}>
         <Text
-          fontSize={{ base: "18px", sm: "44px" }}
+          fontSize={{ base: "22px", md: "44px" }}
           fontWeight={"700"}
           fontFamily="National 2 Condensed"
           mt="20"
@@ -60,19 +50,20 @@ const Categories = () => {
         </Text>
       </Box>
       <Text
-        mt="140px"
-        w={{ base: "100%", sm: "40%" }}
-        ml={{ base: "0", sm: "11.5%" }}
-        fontSize={{ base: "18px", sm: "34px" }}
+        className="text-left sm:text-center"
+        mt={{ base: "20px", md: "100px" }}
+        w={{ base: "100%", md: "60%" }}
+        // ml={{ base: "3", sm: "11.5%" }}
+        fontSize={{ base: "18px", md: "34px" }}
         fontWeight="700"
         lineHeight={"43px"}
         fontFamily="National 2 Condensed"
       >
         BROWSE CATEGORIES
       </Text>
-      <div style={{ width: "80%", marginLeft: "20%" }}>
+      <div className="w-full sm:w-[80%] sm:ml-[20%] ">
         <Grid
-          mt="40px"
+          mt="20px"
           templateColumns={{ base: "repeat(2, 1fr)", sm: "repeat(4, 1fr)" }}
           gap={4}
         >
@@ -81,7 +72,7 @@ const Categories = () => {
           ))}
         </Grid>
       </div>
-    </>
+    </div>
   );
 };
 

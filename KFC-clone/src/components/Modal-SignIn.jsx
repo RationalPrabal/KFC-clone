@@ -22,19 +22,17 @@ function Modal_SignIn({ number }) {
   const finalRef = React.useRef(null);
   const [pin, setPin] = React.useState("");
   function onCaptchVerify() {
-    if (!window.recaptchaVerifier) {
-      window.recaptchaVerifier = new RecaptchaVerifier(
-        "recaptcha-container",
-        {
-          size: "invisible",
-          callback: (response) => {
-            handleClick();
-          },
-          "expired-callback": () => {},
+    window.recaptchaVerifier = new RecaptchaVerifier(
+      "recaptcha-container",
+      {
+        size: "invisible",
+        callback: (response) => {
+          handleClick();
         },
-        auth
-      );
-    }
+        "expired-callback": () => {},
+      },
+      auth
+    );
   }
 
   function handleClick() {
@@ -47,8 +45,6 @@ function Modal_SignIn({ number }) {
         onOpen();
       })
       .catch((error) => {
-        // Error; SMS not sent
-        // ...
         console.log(error);
       });
   }
@@ -60,6 +56,7 @@ function Modal_SignIn({ number }) {
     <>
       <div id="recaptcha-container"></div>
       <Button
+        disabled={number.length !== 12}
         onClick={() => {
           handleClick();
         }}
@@ -68,7 +65,7 @@ function Modal_SignIn({ number }) {
       </Button>
 
       <Modal
-        size={"4xl"}
+        size={{ base: "100%", sm: "4xl" }}
         initialFocusRef={initialRef}
         finalFocusRef={finalRef}
         isOpen={isOpen}
@@ -78,7 +75,7 @@ function Modal_SignIn({ number }) {
         <ModalContent border={"2px solid white"}>
           <div style={{ border: "3px solid white" }}>
             <ModalHeader
-              fontSize={"30px"}
+              fontSize={{ base: "16px", sm: "24px", md: "30px" }}
               fontWeight="700"
               textAlign={"center"}
             >
@@ -101,7 +98,9 @@ function Modal_SignIn({ number }) {
                 ))}
               </PinInput>
             </HStack>
-            <Text as="u">Resend the code</Text>
+            <Text onClick={handleClick} as="u">
+              Resend the code
+            </Text>
           </ModalBody>
           <ModalFooter display={"flex"} justifyContent="center">
             <ToastExample pin={pin} />

@@ -46,10 +46,10 @@ export default function Carousel() {
   return (
     <>
       <Box
-        justifyContent={{ base: "center", sm: "space-between" }}
-        w={{ base: "100%", sm: "35%" }}
+        justifyContent={{ base: "center" }}
+        w={{ base: "100%", sm: "60%", md: "50%" }}
         m={"auto"}
-        display={{ base: "grid", sm: "flex" }}
+        display={{ base: "grid" }}
         mt="50"
       >
         <Text mt="1" as="b">
@@ -59,6 +59,7 @@ export default function Carousel() {
           <Button
             w="100px"
             m="auto"
+            mt="4"
             borderRadius={"30"}
             colorScheme={"#e4002d"}
             bg={"#df0000"}
@@ -68,8 +69,8 @@ export default function Carousel() {
         </Link>
       </Box>
       <Box
+        className="hidden sm:block"
         position={"relative"}
-        //height={'600px'}
         width={"100%"}
         mt="10"
         overflow={"hidden"}

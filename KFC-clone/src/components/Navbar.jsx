@@ -20,7 +20,10 @@ export default function Navbar() {
       <div className="lg:flex w-[25%] justify-between hidden">
         <div>
           <Link to={"/"}>
-            <img src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg" />
+            <img
+              src="https://online.kfc.co.in/static/media/kfcLogo.492728c6.svg"
+              alt="logo"
+            />
           </Link>
         </div>
         <Link to={"/menu"}>
@@ -33,12 +36,15 @@ export default function Navbar() {
         </Link>
       </div>
       <div onClick={() => setShow(!show)}>
-        <GiHamburgerMenu className="lg:hidden" />
+        <GiHamburgerMenu className="lg:hidden text-4xl" />
       </div>
       <div className="flex w-[15%] items-center lg:justify-between justify-end  ">
         <div className="hidden lg:flex">
           <Link to={"/account"}>
-            <img src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg" />
+            <img
+              src="https://images.ctfassets.net/wtodlh47qxpt/6bJdGLRkksNvWP4LI9ZiFF/cb89d6393492fd093e0f99980abfa39e/Account_Icon.svg"
+              alt="account"
+            />
           </Link>
         </div>
         <Link to={"/account"}>
@@ -49,10 +55,13 @@ export default function Navbar() {
         <div className="hidden lg:flex">
           <TfiLineDotted className="rotate-90 text-lg" />
         </div>
-        <div className="w-8 lg:w-12  ">
+        <div className="w-12  ">
           <Link to={"/cart"}>
             {" "}
-            <img src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg" />
+            <img
+              src="https://images.ctfassets.net/wtodlh47qxpt/6qtBVFuno7pdwOQ9RIvYm9/d13e9b7242980972cf49beddde2cc295/bucket_cart_icon.svg"
+              alt="cart"
+            />
           </Link>
         </div>
       </div>

@@ -56,7 +56,7 @@ const Single_Card = ({ image, name, count, price, type, id, description }) => {
   };
 
   return (
-    <Box maxW="sm" borderWidth="1px" borderRadius="lg" overflow="hidden">
+    <Box borderWidth="1px" borderRadius="lg" overflow="hidden">
       <Image src={image} />
 
       <Box p="6">
