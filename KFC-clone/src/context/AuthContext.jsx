@@ -4,17 +4,22 @@ import "firebase/auth";
 import { signOut } from "firebase/auth";
 import { auth } from "../firebase";
 import axios from "axios";
+import { Toast, useToast } from "@chakra-ui/react";
 export const AuthContext = createContext();
 
 function AuthContextProvider({ children }) {
   const [isAuth, setAuth] = React.useState(false);
   const [userId, setUserId] = React.useState(null);
   const [user, setUser] = React.useState(null);
+  const toast = useToast();
   function getUserId() {
     const unsubscribe = auth.onAuthStateChanged((user) => {
-      setAuth(true);
-      setUserId(user.phoneNumber);
-      getUserData(user.phoneNumber);
+      if (user) {
+        setAuth(true);
+
+        setUserId(user.phoneNumber);
+        getUserData(user.phoneNumber);
+      }
     });
 
     return () => {
@@ -34,12 +39,37 @@ function AuthContextProvider({ children }) {
   };
 
   const LogoutUser = () => {
-    signOut(auth);
+    signOut(auth)
+      .then(() => {
+        setAuth(false);
+        toast({
+          title: "Successfully logged out",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+      })
+      .catch((err) => {
+        toast({
+          title: err.message,
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      });
   };
   return (
     <div>
       <AuthContext.Provider
-        value={{ isAuth, setAuth, LogoutUser, getUserId, user }}
+        value={{
+          isAuth,
+          setAuth,
+          LogoutUser,
+          getUserId,
+          user,
+          userId,
+          setUser,
+        }}
       >
         {children}
       </AuthContext.Provider>

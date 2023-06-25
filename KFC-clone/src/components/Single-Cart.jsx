@@ -1,92 +1,112 @@
-import {
-  Badge,
-  Button,
-  Center,
-  Flex,
-  Heading,
-  Image,
-  GridItem,
-  Link,
-  Stack,
-  Text,
-  useColorModeValue,
-  Grid,
-} from "@chakra-ui/react";
+import { Button, Image, GridItem, Text, useToast, Box } from "@chakra-ui/react";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
 import { Spinner } from "@chakra-ui/react";
+import { AuthContext } from "../context/AuthContext";
 export default function SocialProfileWithImageHorizontal({
   image,
   price,
   name,
-  setAmount,
   id,
-  fetching,
-  ch,
-  setCh,
   quant,
-  setLoader,
 }) {
   const [l, sl] = React.useState(false);
-  // const [count,setCount]= React.useState(1);
-  const Delete = (id) => {
-    //  setLoader(true)
+  const { user, userId, setUser } = useContext(AuthContext);
+  const toast = useToast();
+  const Delete = async (id) => {
     sl(true);
-    console.log("sdf");
-    axios
-      .delete(`https://thin-fan-waiter.glitch.me/carts/${id}`)
-      .then((res) => console.log(res));
-    sl(false);
-    //  fetching()
-  };
-
-  const handleSub = (id) => {
-    //  setCount(count-1)
-    sl(true);
-    axios.patch(`https://thin-fan-waiter.glitch.me/carts/${id}`, {
-      quant: quant - 1,
+    const newUserCart = user?.cart.filter((el) => {
+      return el.id !== id;
     });
-    setCh(ch + 1);
-    sl(false);
-    //   fetching()
+    await axios
+      .patch(`https://thin-fan-waiter.glitch.me/users/${userId}`, {
+        cart: newUserCart,
+      })
+      .then(() => {
+        toast({
+          title: "Product removed successfully",
+          status: "success",
+          duration: 5000,
+          isClosable: true,
+        });
+        sl(false);
+        setUser({ ...user, cart: newUserCart });
+      })
+      .catch((err) => {
+        sl(false);
+        toast({
+          title: "Can not remove item",
+          status: "error",
+          duration: 5000,
+          isClosable: true,
+        });
+      });
   };
 
-  const handleAdd = (id) => {
+  const handleSub = async (id) => {
     sl(true);
-    //    setCount(count+1)
-    axios
-      .patch(`https://thin-fan-waiter.glitch.me/carts/${id}`, {
-        quant: quant + 1,
+    const newUserCart = user?.cart.map((el) => {
+      if (el.id === id) {
+        return {
+          ...el,
+          quant: el.quant - 1,
+        };
+      } else return el;
+    });
+    await axios
+      .patch(`https://thin-fan-waiter.glitch.me/users/${userId}`, {
+        cart: newUserCart,
       })
-      .then((res) => console.log(res));
-    setCh(ch + 1);
+      .then(() => {
+        setUser({ ...user, cart: newUserCart });
+      });
+
     sl(false);
-    //   fetching()
+  };
+
+  const handleAdd = async (id) => {
+    sl(true);
+    const newUserCart = user?.cart.map((el) => {
+      if (el.id === id) {
+        return {
+          ...el,
+          quant: el.quant + 1,
+        };
+      } else return el;
+    });
+    await axios
+      .patch(`https://thin-fan-waiter.glitch.me/users/${userId}`, {
+        cart: newUserCart,
+      })
+      .then(() => {
+        setUser({ ...user, cart: newUserCart });
+      });
+
+    sl(false);
   };
 
   return l ? (
     <Spinner ml="50" />
   ) : (
-    <div>
+    <Box boxShadow={"lg"} mt={"10"} padding={"4"} fontWeight={"bold"}>
       <GridItem w="100%" mt="10">
-        <div style={{ display: "flex", justifyContent: "space-around" }}>
-          <div>
+        <div className="grid sm:flex ">
+          <div className="flex  justify-between">
             <Image w="50%" src={image} />
+            <Text>{name}</Text>
           </div>
-
-          <Text w="100%" mr="50">
-            {name}
-          </Text>
-          <div style={{ display: "flex", justifyContent: "space-around" }}>
-            <Button disabled={quant === 1} onClick={() => handleSub(id)}>
-              -
-            </Button>
-            <Button border={"3px solid white"}>{quant}</Button>
-            <Button border={"3px solid white"} onClick={() => handleAdd(id)}>
-              +
-            </Button>
+          <div className="flex mt-4 sm:mt-0  items-start">
+            <div className="w-[200px] ">
+              <Button disabled={quant === 1} onClick={() => handleSub(id)}>
+                -
+              </Button>
+              <Button border={"3px solid white"}>{quant}</Button>
+              <Button border={"3px solid white"} onClick={() => handleAdd(id)}>
+                +
+              </Button>
+            </div>
+            <div>₹{price * quant}</div>
           </div>
-          <div>₹{price * quant}</div>
         </div>
       </GridItem>
       <Button
@@ -97,6 +117,6 @@ export default function SocialProfileWithImageHorizontal({
       >
         Remove
       </Button>
-    </div>
+    </Box>
   );
 }

@@ -1,21 +1,58 @@
-import { GridItem } from "@chakra-ui/react";
-import { Box, Badge, Image, Img, Text, Button } from "@chakra-ui/react";
-import { Link } from "react-router-dom";
+import {
+  Box,
+  Badge,
+  Image,
+  Img,
+  Text,
+  Button,
+  useToast,
+} from "@chakra-ui/react";
 import axios from "axios";
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../context/AuthContext";
 const Single_Card = ({ image, name, count, price, type, id, description }) => {
   const [text, setText] = React.useState("Add to Cart");
-  const AddToCart = () => {
-    setText("Added to Cart");
-    axios
-      .post(`https://thin-fan-waiter.glitch.me/carts`, {
+  const { isAuth, userId, user } = useContext(AuthContext);
+  const toast = useToast();
+  console.log(userId);
+  const AddToCart = async () => {
+    if (isAuth) {
+      user?.cart.push({
         id,
         image,
         price,
         name,
         quant: 1,
-      })
-      .then((res) => console.log(res));
+      });
+      await axios
+        .patch(`https://thin-fan-waiter.glitch.me/users/${userId}`, {
+          cart: user.cart,
+        })
+        .then((res) => {
+          setText("Added to Cart");
+          toast({
+            title: "Product added to Cart",
+            status: "success",
+            duration: 5000,
+            isClosable: true,
+          });
+        })
+        .catch((err) =>
+          toast({
+            title: err.message,
+            status: "error",
+            duration: 5000,
+            isClosable: true,
+          })
+        );
+    } else {
+      toast({
+        title: "Please Login first",
+        status: "error",
+        duration: 5000,
+        isClosable: true,
+      });
+    }
   };
 
   return (

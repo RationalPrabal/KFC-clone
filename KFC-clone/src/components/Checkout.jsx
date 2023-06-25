@@ -21,12 +21,7 @@ const Checkout = ({ amount, product, loader }) => {
   return loader ? (
     <Loader />
   ) : (
-    <Box
-      w={"400px"}
-      mt="300px"
-      //     justifyContent="center"
-      border={"2px solid red"}
-    >
+    <div className="w-[100%] sm:w-[400px] border-[4px] border-red-600 mt-[10px] shadow-lg">
       <Text fontWeight={"700"}>Details</Text>
       <Grid
         height={"50"}
@@ -44,7 +39,7 @@ const Checkout = ({ amount, product, loader }) => {
       </Grid>
 
       <InitialFocus location={location} />
-    </Box>
+    </div>
   );
 };
 

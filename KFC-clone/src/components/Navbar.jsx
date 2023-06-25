@@ -42,7 +42,9 @@ export default function Navbar() {
           </Link>
         </div>
         <Link to={"/account"}>
-          <div className="hidden lg:flex">Sign In</div>
+          <div className="hidden lg:flex">
+            {!isAuth ? "Sign In" : "Profile"}
+          </div>
         </Link>
         <div className="hidden lg:flex">
           <TfiLineDotted className="rotate-90 text-lg" />

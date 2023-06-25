@@ -1,50 +1,18 @@
 import { Box, Grid, Text } from "@chakra-ui/react";
-import React from "react";
+import React, { useContext } from "react";
 import Checkout from "../components/Checkout";
 import Navbar from "../components/Navbar";
 import SocialProfileWithImageHorizontal from "../components/Single-Cart";
-import Loader from "../components/loader";
 import Empty from "../components/empty-cart";
+import { AuthContext } from "../context/AuthContext";
 const Cart = () => {
+  const { user } = useContext(AuthContext);
   const [amount, setAmount] = React.useState(0);
-  const [product, setProduct] = React.useState([]);
-  const [ch, setCh] = React.useState(0);
-  const [loader, setLoader] = React.useState(true);
-  // const [count,setCount]= React.useState(1);
-
-  // const handleAdd=(id)=>{
-  //     let abc=product.filter((el)=>{
-  //     if(el.id==id){
-  //         return el
-  //     }})
-  //     console.log(abc[0].price);
-  //     setCount(abc[0].count++);
-  //     setAmount((val)=>val=val+abc[0].price)
-
-  // }
-  // const handleSub=(id)=>{
-  //     let abc=product.filter((el)=>{
-  //         if(el.id==id){
-  //             return el
-  //         }})
-  //         console.log(abc[0].price);
-  //         setCount(abc[0].count--);
-  //         setAmount((val)=>val=val-abc[0].price)
-  // }
-
-  const fetching = async () => {
-    let response = await fetch(`https://thin-fan-waiter.glitch.me/carts`);
-    let data = await response.json();
-
-    setProduct(data);
-    setLoader(false);
-    //     setAmount(getTotal());
-  };
 
   const getTotal = () => {
     let total;
-    if (product.length !== 0) {
-      total = product.reduce(function (ac, el) {
+    if (user?.cart.length !== 0) {
+      total = user?.cart.reduce(function (ac, el) {
         return ac + el.price * el.quant;
       }, 0);
     }
@@ -52,15 +20,8 @@ const Cart = () => {
   };
 
   React.useEffect(() => {
-    fetching();
-    //var acc=0
-  }, [product, ch]);
-
-  //console.log(acc)
-
-  React.useEffect(() => {
     getTotal();
-  }, [product]);
+  }, [user?.cart]);
 
   return (
     <>
@@ -71,29 +32,21 @@ const Cart = () => {
           MY CART
         </Text>
       </Box>
-      {product.length ? (
-        <div style={{ display: "flex" }}>
+      {user?.cart.length ? (
+        <div className="w-[80%] sm:w-[70%] m-auto ">
           <Grid>
-            {loader ? (
-              <Loader />
-            ) : (
-              product?.map((el) => (
-                <SocialProfileWithImageHorizontal
-                  image={el.image}
-                  price={el.price}
-                  name={el.name}
-                  fetching={fetching}
-                  setAmount={setAmount}
-                  id={el.id}
-                  ch={ch}
-                  setCh={setCh}
-                  quant={el.quant}
-                  setLoader={setLoader}
-                />
-              ))
-            )}
+            {user.cart?.map((el) => (
+              <SocialProfileWithImageHorizontal
+                image={el.image}
+                price={el.price}
+                name={el.name}
+                setAmount={setAmount}
+                id={el.id}
+                quant={el.quant}
+              />
+            ))}
           </Grid>
-          <Checkout product={product} amount={amount} loader={loader} />
+          <Checkout product={user.cart} amount={amount} />
         </div>
       ) : (
         <Empty />

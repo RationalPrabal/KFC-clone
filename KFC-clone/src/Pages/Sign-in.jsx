@@ -8,9 +8,9 @@ import Profile from "../components/Profile";
 import Orders from "../components/Orders_History";
 import Addresses from "../components/Addresses";
 export default function SignIn() {
-  const { user, isAuth } = useContext(AuthContext);
+  const { user, isAuth, LogoutUser } = useContext(AuthContext);
   const [number, setNumber] = React.useState();
-  const [location, setLocation] = React.useState("order");
+  const [location, setLocation] = React.useState("profile");
 
   return (
     <>
@@ -24,7 +24,7 @@ export default function SignIn() {
             </div>
             <div className="text-left w-[60%] m-auto">
               <p className="font-bold text-2xl">Welcome</p>
-              <p className="font-bold text-2xl">{user.mobile}</p>
+              <p className="font-bold text-2xl">{user?.mobile}</p>
             </div>
             <div className="font-medium text-sm text-stone-500 text-left w-[60%] m-auto space-y-2 cursor-pointer">
               <p onClick={() => setLocation("profile")}>Profile</p>
@@ -32,7 +32,10 @@ export default function SignIn() {
               <p onClick={() => setLocation("address")}>Addresses</p>
             </div>
             <div className="text-left w-[60%] m-auto">
-              <button className="rounded-2xl text-sm border-white border-2 px-6 py-2.5">
+              <button
+                onClick={() => LogoutUser()}
+                className="rounded-2xl text-sm border-white border-2 px-6 py-2.5"
+              >
                 Sign Out
               </button>
             </div>
